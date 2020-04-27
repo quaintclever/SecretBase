@@ -42,12 +42,7 @@ subprojects {
         imports {
             mavenBom "org.springframework.cloud:spring-cloud-dependencies:${springCloudVersion}"
             mavenBom "org.springframework.boot:spring-boot-dependencies:${springBootVersion}"
-            mavenBom "com.alibaba:fastjson:${fastjsonVersion}"
-            mavenBom "org.apache.commons:commons-lang3:${commonsLang3Version}"
-            mavenBom "io.springfox:springfox-swagger2:${swagger2Version}"
-            mavenBom "io.springfox:springfox-swagger-ui:${swagger2Version}"
-            mavenBom "com.baomidou:mybatis-plus:${mybatisPlusVersion}"
-            mavenBom "com.baomidou:mybatis-plus-boot-starter:${mybatisPlusVersion}"
+            
         }
     }
 
