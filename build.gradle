@@ -1,0 +1,54 @@
+plugins {
+    id "org.springframework.boot" version '2.2.5.RELEASE' apply false
+}
+
+group 'com.github.quaintclever'
+version '1.0-SNAPSHOT'
+description 'try seek a shop idea'
+
+subprojects {
+
+    apply plugin: 'java'
+    apply plugin: 'idea'
+    apply plugin: 'io.spring.dependency-management'
+
+    group rootProject.group
+    version rootProject.version
+    description rootProject.description
+    
+    tasks.withType(JavaCompile) {
+        options.encoding = "UTF-8"
+    }
+
+    sourceCompatibility = JavaVersion.VERSION_1_8
+    targetCompatibility = JavaVersion.VERSION_1_8
+
+    [compileJava, compileTestJava, javadoc]*.options*.encoding = "UTF-8"
+
+    ext{
+        springCloudVersion = 'Hoxton.SR3'
+        springBootVersion = '2.2.5.RELEASE'
+        
+        mysqlVersion = '6.0.6'
+        druidVersion = '1.0.25'
+        mybatisPlusVersion = '3.0-RC2'
+        
+        commonsLang3Version = '3.4'
+        fastjsonVersion = '1.2.58'
+        swagger2Version = '2.7.0'
+    }
+    
+    dependencyManagement {
+        imports {
+            mavenBom "org.springframework.cloud:spring-cloud-dependencies:${springCloudVersion}"
+            mavenBom "org.springframework.boot:spring-boot-dependencies:${springBootVersion}"
+            mavenBom "com.alibaba:fastjson:${fastjsonVersion}"
+            mavenBom "org.apache.commons:commons-lang3:${commonsLang3Version}"
+            mavenBom "io.springfox:springfox-swagger2:${swagger2Version}"
+            mavenBom "io.springfox:springfox-swagger-ui:${swagger2Version}"
+            mavenBom "com.baomidou:mybatis-plus:${mybatisPlusVersion}"
+            mavenBom "com.baomidou:mybatis-plus-boot-starter:${mybatisPlusVersion}"
+        }
+    }
+
+}

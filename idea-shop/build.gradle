@@ -1,0 +1,23 @@
+apply plugin: 'org.springframework.boot'
+
+test {
+    testLogging {
+        showStandardStreams = true
+    }
+}
+
+configurations.all {
+    //检查远程依赖是否存在更新
+    resolutionStrategy.cacheChangingModulesFor 0, 'seconds'
+}
+
+dependencies {
+    compile('org.springframework.boot:spring-boot-starter-web')
+    runtime "mysql:mysql-connector-java:${mysqlVersion}"
+    runtime "com.alibaba:druid:${druidVersion}"
+
+    annotationProcessor 'org.projectlombok:lombok'
+    compileOnly 'org.projectlombok:lombok'
+    testAnnotationProcessor 'org.projectlombok:lombok'
+    testCompileOnly 'org.projectlombok:lombok'
+}
