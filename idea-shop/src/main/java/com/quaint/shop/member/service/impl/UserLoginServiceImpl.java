@@ -1,6 +1,7 @@
 package com.quaint.shop.member.service.impl;
 
 import com.quaint.shop.member.dao.UserInfoMapper;
+import com.quaint.shop.member.dto.login.SendCode;
 import com.quaint.shop.member.dto.login.UserLogin;
 import com.quaint.shop.member.po.UserInfoPo;
 import com.quaint.shop.member.service.UserLoginService;

@@ -13,7 +13,7 @@ import javax.servlet.http.HttpServletRequest;
  * @param <R>
  */
 @Component
-public abstract class AbstractJsonParamService<T, R> extends AbstractSeekIdeaService<T, R> {
+public abstract class AbstractPostService<T, R> extends AbstractSeekIdeaService<T, R> {
 
     @PostMapping("/")
     public final SeekIdeaResult<R> post(@RequestBody T param, HttpServletRequest request) {

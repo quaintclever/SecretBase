@@ -1,6 +1,6 @@
 package com.quaint.shop.member.spi.login;
 
-import com.quaint.shop.common.abst.AbstractJsonParamService;
+import com.quaint.shop.common.abst.AbstractPostService;
 import com.quaint.shop.common.abst.SeekIdeaResult;
 import com.quaint.shop.member.dto.login.UserLogin;
 import com.quaint.shop.member.service.UserLoginService;
@@ -11,16 +11,16 @@ import org.springframework.web.bind.annotation.RestController;
 
 /**
  * <p>
- * desc: hello spi test
+ * desc: user login
  * </p>
  *
  * @author quaint
  * @since 28 April 2020
  */
 @RestController
-@RequestMapping("/member/login")
-@Api(tags = {"登录测试","分类: 会员登录"})
-public class UserLoginSpi extends AbstractJsonParamService<UserLogin.Param,UserLogin.Result> {
+@RequestMapping("/member/userLogin")
+@Api(tags = {"手机号密码登录","分类: 会员登录"})
+public class UserLoginSpi extends AbstractPostService<UserLogin.Param,UserLogin.Result> {
 
     @Autowired
     UserLoginService userLoginService;
