@@ -5,7 +5,7 @@ CREATE TABLE `user_info` (
   `nick_name` varchar(255) DEFAULT NULL COMMENT '昵称',
   `age` int(11) DEFAULT NULL COMMENT '年龄',
   `phone` varchar(13) DEFAULT NULL COMMENT '手机号',
-	`phone` varchar(13) default null comment '手机号',
+	`password` varchar(255) DEFAULT NULL COMMENT '密码',
 	`level` int(11) default null comment '等级',
 	`integral` decimal(11) default 0 comment '积分',
   `address` varchar(255) DEFAULT NULL COMMENT '地址',
