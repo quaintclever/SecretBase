@@ -1,6 +1,5 @@
 package com.quaint.shop.member.service;
 
-import com.quaint.shop.member.dto.login.SendCode;
 import com.quaint.shop.member.dto.login.UserLogin;
 
 /**
