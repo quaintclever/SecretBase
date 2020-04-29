@@ -20,6 +20,10 @@ import java.io.PrintWriter;
 import java.io.Serializable;
 
 /**
+ * <p>
+ * desc: aop 实现 接口日志
+ * </p>
+ *
  * @author quaint
  */
 @Aspect
@@ -82,7 +86,7 @@ public class LoggerAspect {
         try {
             resultWriter = response.getWriter();
             Object result = joinPoint.proceed();
-            if (result instanceof SeekIdeaResult){
+            if (result instanceof SeekIdeaResult) {
                 ideaResult = (SeekIdeaResult) result;
             } else {
                 ideaResult = new SeekIdeaResult<>();
@@ -97,12 +101,12 @@ public class LoggerAspect {
             if (throwable instanceof Exception) {
                 Exception e = (Exception) throwable;
                 log.info("【接口请求地址】==> [{}],【请求错误原因】==> {}:[{}{}]", apiPath, method, e.getCause(), e.getMessage());
-                if (ideaResult == null){
+                if (ideaResult == null) {
                     ideaResult = new SeekIdeaResult<>();
                 }
                 ideaResult.setCode(205);
-                ideaResult.setMsg("接口请求异常==>"+e.getMessage());
-                if (resultWriter != null){
+                ideaResult.setMsg("接口请求异常==>" + e.getMessage());
+                if (resultWriter != null) {
                     resultWriter.write(JSON.toJSONString(ideaResult));
                 }
             } else {

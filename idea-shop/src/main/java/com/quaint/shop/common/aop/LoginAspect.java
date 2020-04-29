@@ -34,7 +34,8 @@ public class LoginAspect {
     UserInfoMapper userInfoMapper;
 
     @Pointcut("@annotation(com.quaint.shop.common.annotation.CheckLogin)")
-    public void login(){}
+    public void login() {
+    }
 
     @Around("login()")
     public Object around(ProceedingJoinPoint joinPoint) throws Throwable {
@@ -45,9 +46,9 @@ public class LoginAspect {
         String token = "session -> token -> jwt -> id:1";
         // todo 假设解析token
         try {
-            Long id = Long.parseLong(token.substring(token.lastIndexOf(":")+1));
+            Long id = Long.parseLong(token.substring(token.lastIndexOf(":") + 1));
             UserInfoPo userInfoPo = userInfoMapper.selectById(id);
-            if (userInfoPo == null){
+            if (userInfoPo == null) {
                 throw new RuntimeException("用户信息不存在!");
             }
             // 设置用户信息到上下文中
