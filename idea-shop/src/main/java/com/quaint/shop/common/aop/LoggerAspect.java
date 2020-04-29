@@ -9,6 +9,7 @@ import org.aspectj.lang.annotation.Around;
 import org.aspectj.lang.annotation.Aspect;
 import org.aspectj.lang.annotation.Pointcut;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.core.annotation.Order;
 import org.springframework.stereotype.Component;
 import org.springframework.web.context.request.RequestContextHolder;
 import org.springframework.web.context.request.ServletRequestAttributes;
@@ -24,6 +25,7 @@ import java.io.Serializable;
 @Aspect
 @Component
 @Slf4j
+@Order(1)
 public class LoggerAspect {
 
     @Value("${spring.application.name}")
@@ -31,8 +33,12 @@ public class LoggerAspect {
 
     /**
      * 定义切点
+     * 1. public    ==>   范围
+     * 2. *         ==>   返回类型
+     * 3. 包目录.*   ==>   该包下的所有controller
+     * 4. *(..)     ==>   所有方法
+     * // @Pointcut("execution(public * com.quaint.shop.member.spi.aopspi.*.*(..))")
      */
-//    @Pointcut("execution(public * com.quaint.shop.member.spi.aopspi.*.*(..))")
     @Pointcut("@annotation(io.swagger.annotations.ApiOperation)")
     public void aspect() {
         System.out.println("aspect");
@@ -40,7 +46,6 @@ public class LoggerAspect {
 
     @Around("aspect()")
     public void around(ProceedingJoinPoint joinPoint) {
-
         // 获取 request
         ServletRequestAttributes sra = (ServletRequestAttributes) RequestContextHolder.getRequestAttributes();
         HttpServletRequest request = sra.getRequest();
