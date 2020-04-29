@@ -11,8 +11,10 @@ import javax.servlet.http.HttpServletRequest;
  * @author quaint
  * @param <T>
  * @param <R>
+ * @deprecated see package-info
  */
 @Component
+@Deprecated
 public abstract class AbstractPostService<T, R> extends AbstractSeekIdeaService<T, R> {
 
     @PostMapping("/")

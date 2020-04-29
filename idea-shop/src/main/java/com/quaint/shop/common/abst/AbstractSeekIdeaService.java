@@ -9,7 +9,9 @@ import org.springframework.beans.factory.annotation.Value;
  * 基础Service,封装了通用的接口请求逻辑.
  *
  * @author quaint
+ * @deprecated see package-info
  */
+@Deprecated
 public abstract class AbstractSeekIdeaService<T, R> implements SeekIdeaApi<T, R> {
 
     private static Logger log = LoggerFactory.getLogger(AbstractSeekIdeaService.class);

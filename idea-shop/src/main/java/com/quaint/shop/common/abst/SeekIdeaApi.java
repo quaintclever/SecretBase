@@ -7,7 +7,9 @@ package com.quaint.shop.common.abst;
  *
  * @author quaint
  * @since 28 April 2020
+ * @deprecated see package-info
  */
+@Deprecated
 public interface SeekIdeaApi<T, R> {
 
     /**

@@ -26,6 +26,9 @@ dependencies {
     // https://mvnrepository.com/artifact/org.springframework.boot/spring-boot-starter-data-redis
     compile group: 'org.springframework.boot', name: 'spring-boot-starter-data-redis'
     compile 'org.apache.commons:commons-pool2:2.7.0'
+    
+    // spring boot aop
+    compile('org.springframework.boot:spring-boot-starter-aop')
 
     annotationProcessor 'org.projectlombok:lombok'
     compileOnly 'org.projectlombok:lombok'
