@@ -12,7 +12,9 @@ repositories {
 }
 
 dependencies {
+
     // api
+    compile project(':shop-spike-api')
     compile project(':shop-member-api')
 
     // sql
@@ -20,13 +22,13 @@ dependencies {
     runtime "com.alibaba:druid:${druidVersion}"
     compile "com.baomidou:mybatis-plus:${mybatisPlusVersion}"
     compile "com.baomidou:mybatis-plus-boot-starter:${mybatisPlusVersion}"
-    
+
     // lombok
     annotationProcessor 'org.projectlombok:lombok'
     compileOnly 'org.projectlombok:lombok'
     testAnnotationProcessor 'org.projectlombok:lombok'
     testCompileOnly 'org.projectlombok:lombok'
-    
+
     // test
     testCompile group: 'junit', name: 'junit', version: '4.12'
 }

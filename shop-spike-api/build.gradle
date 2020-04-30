@@ -15,10 +15,11 @@ dependencies {
 
     // common
     compile project(':shop-common')
-    
+
     // lombok
     annotationProcessor 'org.projectlombok:lombok'
     compileOnly 'org.projectlombok:lombok'
     testAnnotationProcessor 'org.projectlombok:lombok'
     testCompileOnly 'org.projectlombok:lombok'
+
 }

@@ -4,4 +4,6 @@ include 'shop-common'
 include 'shop-discovery'
 include 'shop-member-api'
 include 'shop-member-server'
+include 'shop-spike-server'
+include 'shop-spike-api'
 
