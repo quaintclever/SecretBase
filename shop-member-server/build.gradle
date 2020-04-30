@@ -14,8 +14,6 @@ repositories {
 dependencies {
     // api
     compile project(':shop-member-api')
-    // common
-//    compile project(':shop-common')
 
     // spring boot redis
     compile group: 'org.springframework.boot', name: 'spring-boot-starter-data-redis'
@@ -29,9 +27,6 @@ dependencies {
     runtime "com.alibaba:druid:${druidVersion}"
     compile "com.baomidou:mybatis-plus:${mybatisPlusVersion}"
     compile "com.baomidou:mybatis-plus-boot-starter:${mybatisPlusVersion}"
-
-    // swagger2 ui
-    compile "io.springfox:springfox-swagger-ui:${swagger2Version}"
     
     // lombok
     annotationProcessor 'org.projectlombok:lombok'

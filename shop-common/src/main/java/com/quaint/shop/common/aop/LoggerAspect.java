@@ -11,6 +11,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.core.annotation.Order;
+import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Component;
 import org.springframework.web.context.request.RequestContextHolder;
 import org.springframework.web.context.request.ServletRequestAttributes;
@@ -95,7 +96,7 @@ public class LoggerAspect {
                 ideaResult.setBody(result);
             }
             ideaResult.setMsg("success");
-            ideaResult.setCode(200);
+            ideaResult.setCode(HttpStatus.OK.value());
             String jsonResult = JSON.toJSONString(ideaResult);
             resultWriter.write(jsonResult);
             log.info("【接口请求地址】==> [{}],【请求成功】==> result:[{}]", apiPath, jsonResult);
@@ -106,7 +107,7 @@ public class LoggerAspect {
                 if (ideaResult == null) {
                     ideaResult = new SeekIdeaResult<>();
                 }
-                ideaResult.setCode(205);
+                ideaResult.setCode(HttpStatus.INTERNAL_SERVER_ERROR.value());
                 ideaResult.setMsg("接口请求异常==>" + e.getMessage());
                 if (resultWriter != null) {
                     resultWriter.write(JSON.toJSONString(ideaResult));

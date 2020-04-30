@@ -1,6 +1,7 @@
 package com.quaint.shop.member.controller;
 
 import com.quaint.shop.common.annotation.AopLogger;
+import com.quaint.shop.common.dto.SeekIdeaResult;
 import com.quaint.shop.member.annotation.AopLogin;
 import com.quaint.shop.member.api.UserInfoApi;
 import com.quaint.shop.member.dto.info.UserInfoDto;
@@ -38,8 +39,7 @@ public class UserInfoController implements UserInfoApi {
 
     @Override
     @ApiOperation("获取对应用户id的信息")
-    @AopLogger
-    public UserInfoDto getUserInfoById(Long id){
+    public UserInfoDto getUserInfoById(@RequestBody Long id){
         return userInfoService.getUserInfoById(id);
     }
 

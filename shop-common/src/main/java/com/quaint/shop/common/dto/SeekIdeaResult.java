@@ -47,4 +47,11 @@ public class SeekIdeaResult<R> {
     public void setCode(Integer code) {
         this.code = code;
     }
+
+    public SeekIdeaResult() {
+    }
+
+    public SeekIdeaResult(R body) {
+        this.body = body;
+    }
 }

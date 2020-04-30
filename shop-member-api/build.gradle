@@ -19,8 +19,15 @@ dependencies {
     // spring cloud feign
     compile('org.springframework.cloud:spring-cloud-starter-openfeign')
     compile('io.github.openfeign:feign-httpclient')
-    // spring cloud ribbon
-    compile('org.springframework.cloud:spring-cloud-starter-netflix-ribbon')
+
+    // spring boot web & aop
+    compile('org.springframework.boot:spring-boot-starter-web')
+    compile('org.springframework.boot:spring-boot-starter-aop')
+
+    // swagger2
+    compile "io.springfox:springfox-swagger2:${swagger2Version}"
+    // swagger2 ui
+    compile "io.springfox:springfox-swagger-ui:${swagger2Version}"
     
     // lombok
     annotationProcessor 'org.projectlombok:lombok'

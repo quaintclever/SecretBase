@@ -12,6 +12,7 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.annotation.Order;
 import org.springframework.stereotype.Component;
+import org.springframework.util.StringUtils;
 import org.springframework.web.context.request.RequestContextHolder;
 import org.springframework.web.context.request.ServletRequestAttributes;
 
@@ -39,11 +40,15 @@ public class LoginAspect {
             ,argNames = "joinPoint,aopLogin")
     public Object around(ProceedingJoinPoint joinPoint, AopLogin aopLogin) throws Throwable {
 
+        UserContext.clean();
         String token;
         // 注解是否开启, 未开启使用test 里面的id
         if (aopLogin.open()){
             HttpServletRequest request = ((ServletRequestAttributes) RequestContextHolder.getRequestAttributes()).getRequest();
             token = (String) request.getSession().getAttribute("token");
+            if (StringUtils.isEmpty(token)){
+                throw new RuntimeException("用户未登录!");
+            }
         } else {
             token = "token#"+ aopLogin.test();
         }
@@ -52,7 +57,7 @@ public class LoginAspect {
         try {
             Long id = Long.parseLong(token.substring(token.lastIndexOf("#") + 1));
             UserInfoDto user = userInfoApi.getUserInfoById(id);
-            if (user == null) {
+            if (user == null || user.getId() == null) {
                 throw new RuntimeException("用户信息不存在!");
             }
             // 设置用户信息到上下文中
