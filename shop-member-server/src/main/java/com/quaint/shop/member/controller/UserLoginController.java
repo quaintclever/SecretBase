@@ -1,5 +1,6 @@
 package com.quaint.shop.member.controller;
 
+import com.quaint.shop.common.annotation.AopLogger;
 import com.quaint.shop.member.dto.login.SendCode;
 import com.quaint.shop.member.dto.login.UserLogin;
 import com.quaint.shop.member.enums.SendCodeEnum;
@@ -34,12 +35,14 @@ public class UserLoginController {
 
 
     @ApiOperation("手机&密码登录")
+    @AopLogger
     @PostMapping("userLogin/phone")
     public UserLogin.Result userLogin(@RequestBody UserLogin.Param param){
         return userLoginService.userLogin(param);
     }
 
     @ApiOperation("手机登录发送验证码")
+    @AopLogger
     @PostMapping("userLogin/sendCode")
     public SendCode.Result loginSendCode(@RequestBody SendCode.Param param){
         SendCode.Result result = new SendCode.Result();

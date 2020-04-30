@@ -22,8 +22,7 @@ import org.springframework.web.bind.annotation.*;
  */
 @Api(tags = {"用户信息相关接口","分类: 用户"})
 @RestController
-@RequestMapping
-public class UserInfoController implements UserInfoApi {
+public class UserInfoController {
 
     @Autowired
     UserInfoService userInfoService;
@@ -36,13 +35,6 @@ public class UserInfoController implements UserInfoApi {
         Long userId = UserContext.getUserId();
         return userInfoService.getUserInfoById(userId);
     }
-
-    @Override
-    @ApiOperation("获取对应用户id的信息")
-    public UserInfoDto getUserInfoById(@RequestBody Long id){
-        return userInfoService.getUserInfoById(id);
-    }
-
 
 }
 

@@ -14,6 +14,8 @@ repositories {
 dependencies {
     // api
     compile project(':shop-member-api')
+    // common
+    compile project(':shop-common')
 
     // spring boot redis
     compile group: 'org.springframework.boot', name: 'spring-boot-starter-data-redis'

@@ -12,9 +12,6 @@ repositories {
 }
 
 dependencies {
-
-    // common
-    compile project(':shop-common')
     
     // spring cloud feign
     compile('org.springframework.cloud:spring-cloud-starter-openfeign')
