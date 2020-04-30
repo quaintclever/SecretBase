@@ -45,7 +45,7 @@ public class LoggerAspect {
      * 4. *(..)     ==>   所有方法
      * // @Pointcut("execution(public * com.quaint.shop.member.spi.aopspi.*.*(..))")
      */
-    @Pointcut("@annotation(io.swagger.annotations.ApiOperation)")
+    @Pointcut("@annotation(com.quaint.shop.common.annotation.AopLogger)")
     public void aspect() {
         System.out.println("aspect");
     }

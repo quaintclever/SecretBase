@@ -29,6 +29,9 @@ public class UserInfoServiceImpl implements UserInfoService {
         log.info("【 ===> getUserInfoById <=== 】method start, param:[{}]", id);
         UserInfoDto result = new UserInfoDto();
         UserInfoPo userInfoPo = userInfoMapper.selectById(id);
+        if (userInfoPo == null){
+            throw new RuntimeException("用户信息不存在");
+        }
         BeanUtils.copyProperties(userInfoPo,result);
         log.info("【 ===> getUserInfoById <=== 】method end, result:[{}]", result);
         return result;

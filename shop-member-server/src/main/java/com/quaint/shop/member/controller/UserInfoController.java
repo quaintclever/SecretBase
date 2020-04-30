@@ -1,8 +1,8 @@
 package com.quaint.shop.member.controller;
 
-import com.quaint.shop.member.annotation.CheckLogin;
+import com.quaint.shop.common.annotation.AopLogger;
+import com.quaint.shop.member.annotation.AopLogin;
 import com.quaint.shop.member.api.UserInfoApi;
-import com.quaint.shop.member.constant.UserApiUrlConstants;
 import com.quaint.shop.member.dto.info.UserInfoDto;
 import com.quaint.shop.member.helper.UserContext;
 import com.quaint.shop.member.server.UserInfoService;
@@ -29,7 +29,8 @@ public class UserInfoController implements UserInfoApi {
 
     @ApiOperation("获取当前登录用户的信息")
     @PostMapping("userInfo/current")
-    @CheckLogin
+    @AopLogin
+    @AopLogger
     public UserInfoDto getUserInfo(){
         Long userId = UserContext.getUserId();
         return userInfoService.getUserInfoById(userId);
@@ -37,6 +38,7 @@ public class UserInfoController implements UserInfoApi {
 
     @Override
     @ApiOperation("获取对应用户id的信息")
+    @AopLogger
     public UserInfoDto getUserInfoById(Long id){
         return userInfoService.getUserInfoById(id);
     }

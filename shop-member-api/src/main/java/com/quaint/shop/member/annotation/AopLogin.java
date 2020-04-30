@@ -15,6 +15,18 @@ import java.lang.annotation.Target;
  */
 @Target(ElementType.METHOD)
 @Retention(RetentionPolicy.RUNTIME)
-public @interface CheckLogin {
+public @interface AopLogin {
+
+    /**
+     * 是否开启登录校验
+     * @return bool
+     */
+    boolean open() default false;
+
+    /**
+     * 如果没有开启的话, 默认用第一个用户
+     * @return id
+     */
+    long test() default 1L;
 
 }

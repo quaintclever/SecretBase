@@ -1,12 +1,12 @@
 package com.quaint.shop.member.aop;
 
+import com.quaint.shop.member.annotation.AopLogin;
 import com.quaint.shop.member.api.UserInfoApi;
 import com.quaint.shop.member.dto.info.UserInfoDto;
 import com.quaint.shop.member.helper.UserContext;
 import org.aspectj.lang.ProceedingJoinPoint;
 import org.aspectj.lang.annotation.Around;
 import org.aspectj.lang.annotation.Aspect;
-import org.aspectj.lang.annotation.Pointcut;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -35,27 +35,29 @@ public class LoginAspect {
     @Autowired
     UserInfoApi userInfoApi;
 
-    @Pointcut("@annotation(com.quaint.shop.member.annotation.CheckLogin)")
-    public void login() {
-    }
+    @Around(value = "@annotation(com.quaint.shop.member.annotation.AopLogin) && @annotation(aopLogin)"
+            ,argNames = "joinPoint,aopLogin")
+    public Object around(ProceedingJoinPoint joinPoint, AopLogin aopLogin) throws Throwable {
 
-    @Around("login()")
-    public Object around(ProceedingJoinPoint joinPoint) throws Throwable {
+        String token;
+        // 注解是否开启, 未开启使用test 里面的id
+        if (aopLogin.open()){
+            HttpServletRequest request = ((ServletRequestAttributes) RequestContextHolder.getRequestAttributes()).getRequest();
+            token = (String) request.getSession().getAttribute("token");
+        } else {
+            token = "token#"+ aopLogin.test();
+        }
 
-        HttpServletRequest request = ((ServletRequestAttributes) RequestContextHolder.getRequestAttributes()).getRequest();
-        String sessionToken = (String) request.getSession().getAttribute("token");
-        // todo 假设session token 是 下面的 token
-        String token = "session -> token -> jwt -> id:1";
-        // todo 假设解析token
+        // 解析token
         try {
-            Long id = Long.parseLong(token.substring(token.lastIndexOf(":") + 1));
+            Long id = Long.parseLong(token.substring(token.lastIndexOf("#") + 1));
             UserInfoDto user = userInfoApi.getUserInfoById(id);
             if (user == null) {
                 throw new RuntimeException("用户信息不存在!");
             }
             // 设置用户信息到上下文中
             UserContext.setUserId(user.getId());
-        } catch (NumberFormatException e) {
+        } catch (Exception e) {
             throw new RuntimeException("用户未登录!");
         }
 
