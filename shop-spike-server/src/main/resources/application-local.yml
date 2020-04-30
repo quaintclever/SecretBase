@@ -3,7 +3,7 @@ server:
 
 spring:
   application:
-    name: shop-member-spike
+    name: shop-spike-server
   # ======= 数据源 =======
   datasource:
     name: idea-shop-db

@@ -1,30 +1,32 @@
-package com.quaint.shop.member;
+package com.quaint.shop.spike;
 
 import com.netflix.loadbalancer.IRule;
 import com.netflix.loadbalancer.RandomRule;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.cloud.client.discovery.EnableDiscoveryClient;
 import org.springframework.cloud.client.loadbalancer.LoadBalanced;
-import org.springframework.cloud.openfeign.EnableFeignClients;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.web.client.RestTemplate;
+import springfox.documentation.swagger2.annotations.EnableSwagger2;
 
 /**
  * <p>
- * desc: 启动类
+ * desc:
  * </p>
  *
  * @author quaint
- * @since 26 April 2020
+ * @since 30 April 2020
  */
 @SpringBootApplication
-@EnableFeignClients
+@EnableDiscoveryClient
+@EnableSwagger2
 @ComponentScan(basePackages = "com.quaint.shop")
-public class MemberApplication {
+public class SpikeApplication {
 
     public static void main(String[] args) {
-        SpringApplication.run(MemberApplication.class,args);
+        SpringApplication.run(SpikeApplication.class,args);
     }
 
     @Bean
@@ -41,4 +43,5 @@ public class MemberApplication {
     public IRule getIRule(){
         return new RandomRule();
     }
+
 }

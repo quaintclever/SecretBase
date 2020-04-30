@@ -13,6 +13,6 @@ public interface UserApiUrlConstants {
     /**
      * 通过id 获取用户信息
      */
-    String GET_USER_INFO_BY_ID = "api/userInfo/id";
+    String GET_USER_INFO_BY_ID = "/api/userInfo/id";
 
 }
