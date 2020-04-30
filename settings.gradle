@@ -1,4 +1,7 @@
 rootProject.name = 'seek-idea'
-include 'idea-shop'
 include 'idea-lazy'
+include 'shop-common'
+include 'shop-discovery'
+include 'shop-member-api'
+include 'shop-member-server'
 

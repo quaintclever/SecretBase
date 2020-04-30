@@ -1,0 +1,42 @@
+plugins {
+    id 'java'
+}
+
+group 'com.github.quaintclever'
+version '1.0-SNAPSHOT'
+
+sourceCompatibility = 1.8
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    // api
+    compile project(':shop-member-api')
+
+    // spring boot redis
+    compile group: 'org.springframework.boot', name: 'spring-boot-starter-data-redis'
+    compile 'org.apache.commons:commons-pool2:2.7.0'
+    
+    // spring cloud nacos
+    compile 'com.alibaba.cloud:spring-cloud-starter-alibaba-nacos-discovery'
+
+    // sql
+    runtime "mysql:mysql-connector-java:${mysqlVersion}"
+    runtime "com.alibaba:druid:${druidVersion}"
+    compile "com.baomidou:mybatis-plus:${mybatisPlusVersion}"
+    compile "com.baomidou:mybatis-plus-boot-starter:${mybatisPlusVersion}"
+
+    // swagger2 ui
+    compile "io.springfox:springfox-swagger-ui:${swagger2Version}"
+    
+    // lombok
+    annotationProcessor 'org.projectlombok:lombok'
+    compileOnly 'org.projectlombok:lombok'
+    testAnnotationProcessor 'org.projectlombok:lombok'
+    testCompileOnly 'org.projectlombok:lombok'
+    
+    // test
+    testCompile group: 'junit', name: 'junit', version: '4.12'
+}

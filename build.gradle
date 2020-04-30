@@ -28,6 +28,7 @@ subprojects {
     ext{
         springCloudVersion = 'Hoxton.SR3'
         springBootVersion = '2.2.5.RELEASE'
+        springCloudAlibabaVersion = '2.1.0.RELEASE'
         
         mysqlVersion = '6.0.6'
         druidVersion = '1.0.25'
@@ -42,6 +43,7 @@ subprojects {
         imports {
             mavenBom "org.springframework.cloud:spring-cloud-dependencies:${springCloudVersion}"
             mavenBom "org.springframework.boot:spring-boot-dependencies:${springBootVersion}"
+            mavenBom "com.alibaba.cloud:spring-cloud-alibaba-dependencies:${springCloudAlibabaVersion}"
             
         }
     }
