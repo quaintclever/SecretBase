@@ -31,7 +31,6 @@ public class UserInfoApiImpl implements UserInfoApi {
         // 通过负载均衡获取实例
         ServiceInstance choose = loadBalancerClient.choose("shop-member-server");
         String url = "http://shop-member-server:"+choose.getPort()+ UserApiUrlConstants.GET_USER_INFO_BY_ID;
-        System.out.println(url);
         return restTemplate.postForObject(url, id,UserInfoDto.class);
     }
 }

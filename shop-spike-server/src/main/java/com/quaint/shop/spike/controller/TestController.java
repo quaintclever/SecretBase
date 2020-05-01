@@ -1,6 +1,6 @@
 package com.quaint.shop.spike.controller;
 
-import com.quaint.shop.common.annotation.AopLogger;
+import com.quaint.shop.common.annotation.AopLoggerResult;
 import com.quaint.shop.member.annotation.AopLogin;
 import com.quaint.shop.member.api.UserInfoApi;
 import com.quaint.shop.member.dto.info.UserInfoDto;
@@ -27,7 +27,7 @@ public class TestController {
     UserInfoApi userInfoApi;
 
     @PostMapping("test")
-    @AopLogger
+    @AopLoggerResult
     @AopLogin
     @ApiOperation("测试获取用户信息")
     public UserInfoDto testGetUserInfo(){

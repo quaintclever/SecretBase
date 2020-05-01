@@ -1,7 +1,5 @@
 package com.quaint.shop.member.server.impl;
 
-import com.quaint.shop.common.aop.LoggerAspect;
-import com.quaint.shop.member.aop.LoginAspect;
 import com.quaint.shop.member.dao.UserInfoMapper;
 import com.quaint.shop.member.dto.login.UserLogin;
 import com.quaint.shop.member.po.UserInfoPo;

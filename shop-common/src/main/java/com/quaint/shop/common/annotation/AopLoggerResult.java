@@ -8,8 +8,7 @@ import java.lang.annotation.Target;
 /**
  * <p>
  * desc: aop 日志拦截注解, 需要启动类配置 扫描
- * 不会把 对象自动封装为 SeekIdeaResult 对象
- * 一般 提供 api 使用, 防止远程调用出现write问题
+ * 会把 对象自动封装为 SeekIdeaResult 对象
  * @ ComponentScan(basePackages = "com.quaint.shop")
  * </p>
  *
@@ -18,6 +17,6 @@ import java.lang.annotation.Target;
  */
 @Target(ElementType.METHOD)
 @Retention(RetentionPolicy.RUNTIME)
-public @interface AopLogger {
+public @interface AopLoggerResult {
 
 }

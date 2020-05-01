@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 /**
  * <p>
  * desc: 远程调用 userInfo api
- * api 不需要增加 AopLogger
+ * api 不需要增加 AopLoggerResult
  * 否则会出现 getWriter() has already been called for this response 异常
  * </p>
  *
