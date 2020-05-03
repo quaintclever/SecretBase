@@ -1,4 +1,4 @@
-rootProject.name = 'seek-idea'
+rootProject.name = 'SecretBase'
 include 'idea-lazy'
 include 'shop-common'
 include 'shop-discovery'
