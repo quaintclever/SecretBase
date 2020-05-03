@@ -1,7 +1,7 @@
 package com.quaint.shop.common.aop;
 
 import com.alibaba.fastjson.JSON;
-import com.quaint.shop.common.dto.SeekIdeaResult;
+import com.quaint.shop.common.dto.ShopResult;
 import org.aspectj.lang.ProceedingJoinPoint;
 import org.aspectj.lang.annotation.Around;
 import org.aspectj.lang.annotation.Aspect;
@@ -54,33 +54,33 @@ public class LoggerResultAspect extends BaseLogger{
         // 请求地址 和 方法名称
         String method = joinPoint.getSignature().getName();
 
-        SeekIdeaResult<Object> ideaResult = null;
+        ShopResult<Object> shopResult = null;
         PrintWriter resultWriter = null;
         try {
             resultWriter = response.getWriter();
             Object result = joinPoint.proceed();
-            if (result instanceof SeekIdeaResult) {
-                ideaResult = (SeekIdeaResult) result;
+            if (result instanceof ShopResult) {
+                shopResult = (ShopResult) result;
             } else {
-                ideaResult = new SeekIdeaResult<>();
-                ideaResult.setBody(result);
+                shopResult = new ShopResult<>();
+                shopResult.setBody(result);
             }
-            ideaResult.setMsg("success");
-            ideaResult.setCode(HttpStatus.OK.value());
-            String jsonResult = JSON.toJSONString(ideaResult);
+            shopResult.setMsg("success");
+            shopResult.setCode(HttpStatus.OK.value());
+            String jsonResult = JSON.toJSONString(shopResult);
             resultWriter.write(jsonResult);
             log.info("【接口请求地址】==> [{}],【请求成功】==> result:[{}]", apiPath, jsonResult);
         } catch (Throwable throwable) {
             if (throwable instanceof Exception) {
                 Exception e = (Exception) throwable;
                 log.info("【接口请求地址】==> [{}],【请求错误原因】==> {}:[{}{}]", apiPath, method, e.getCause(), e.getMessage());
-                if (ideaResult == null) {
-                    ideaResult = new SeekIdeaResult<>();
+                if (shopResult == null) {
+                    shopResult = new ShopResult<>();
                 }
-                ideaResult.setCode(HttpStatus.INTERNAL_SERVER_ERROR.value());
-                ideaResult.setMsg("接口请求异常==>" + e.getMessage());
+                shopResult.setCode(HttpStatus.INTERNAL_SERVER_ERROR.value());
+                shopResult.setMsg("接口请求异常==>" + e.getMessage());
                 if (resultWriter != null) {
-                    resultWriter.write(JSON.toJSONString(ideaResult));
+                    resultWriter.write(JSON.toJSONString(shopResult));
                 }
             } else {
                 throwable.printStackTrace();

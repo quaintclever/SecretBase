@@ -4,12 +4,10 @@ import com.netflix.loadbalancer.IRule;
 import com.netflix.loadbalancer.RandomRule;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-import org.springframework.cloud.client.discovery.EnableDiscoveryClient;
 import org.springframework.cloud.client.loadbalancer.LoadBalanced;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.web.client.RestTemplate;
-import springfox.documentation.swagger2.annotations.EnableSwagger2;
 
 /**
  * <p>
@@ -20,8 +18,6 @@ import springfox.documentation.swagger2.annotations.EnableSwagger2;
  * @since 30 April 2020
  */
 @SpringBootApplication
-@EnableDiscoveryClient
-@EnableSwagger2
 @ComponentScan(basePackages = "com.quaint.shop")
 public class SpikeApplication {
 

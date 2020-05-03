@@ -8,7 +8,7 @@ package com.quaint.shop.common.dto;
  * @author quaint
  * @since 28 April 2020
  */
-public class SeekIdeaResult<R> {
+public class ShopResult<R> {
 
     private R body;
     private Integer count;
@@ -48,10 +48,10 @@ public class SeekIdeaResult<R> {
         this.code = code;
     }
 
-    public SeekIdeaResult() {
+    public ShopResult() {
     }
 
-    public SeekIdeaResult(R body) {
+    public ShopResult(R body) {
         this.body = body;
     }
 }

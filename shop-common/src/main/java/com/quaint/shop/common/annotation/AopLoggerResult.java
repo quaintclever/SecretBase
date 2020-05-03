@@ -8,7 +8,7 @@ import java.lang.annotation.Target;
 /**
  * <p>
  * desc: aop 日志拦截注解, 需要启动类配置 扫描
- * 会把 对象自动封装为 SeekIdeaResult 对象
+ * 会把 对象自动封装为 ShopResult 对象
  * @ ComponentScan(basePackages = "com.quaint.shop")
  * </p>
  *
