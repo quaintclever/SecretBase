@@ -2,7 +2,7 @@ package com.quaint.shop.member.server.impl;
 
 import com.quaint.shop.member.dao.UserInfoMapper;
 import com.quaint.shop.member.dto.login.UserLogin;
-import com.quaint.shop.member.po.UserInfoPo;
+import com.quaint.shop.member.po.MemberInfoPo;
 import com.quaint.shop.member.server.UserLoginService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -28,9 +28,9 @@ public class UserLoginServiceImpl implements UserLoginService {
         log.info("【 ===> userLogin <=== 】method start, param:[{}]", param);
         UserLogin.Result result = new UserLogin.Result();
 
-        UserInfoPo userInfoPo = userInfoMapper.loginCheckByPhoneAndPwd(param.getPhone(), param.getPassword());
-        if (userInfoPo != null){
-            result.setToken("token#"+userInfoPo.getId());
+        MemberInfoPo memberInfoPo = userInfoMapper.loginCheckByPhoneAndPwd(param.getPhone(), param.getPassword());
+        if (memberInfoPo != null){
+            result.setToken("token#"+ memberInfoPo.getId());
         } else {
             result.setToken("error");
         }

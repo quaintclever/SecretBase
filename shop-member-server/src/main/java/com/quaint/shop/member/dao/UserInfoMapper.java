@@ -1,7 +1,7 @@
 package com.quaint.shop.member.dao;
 
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
-import com.quaint.shop.member.po.UserInfoPo;
+import com.quaint.shop.member.po.MemberInfoPo;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
 import org.apache.ibatis.annotations.Select;
@@ -15,7 +15,7 @@ import org.apache.ibatis.annotations.Select;
  * @since 2020-04-27
  */
 @Mapper
-public interface UserInfoMapper extends BaseMapper<UserInfoPo> {
+public interface UserInfoMapper extends BaseMapper<MemberInfoPo> {
 
     /**
      * 通过手机号登录 校验
@@ -24,6 +24,6 @@ public interface UserInfoMapper extends BaseMapper<UserInfoPo> {
      * @return po
      */
     @Select("select * from user_info where phone = #{phone} and password = #{pwd} limit 1")
-    UserInfoPo loginCheckByPhoneAndPwd(@Param("phone") String phone, @Param("pwd") String pwd);
+    MemberInfoPo loginCheckByPhoneAndPwd(@Param("phone") String phone, @Param("pwd") String pwd);
 
 }

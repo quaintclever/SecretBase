@@ -21,8 +21,8 @@ import java.time.LocalDateTime;
 @Data
 @EqualsAndHashCode(callSuper = false)
 @Accessors(chain = true)
-@TableName("user_info")
-public class UserInfoPo implements Serializable {
+@TableName("member_info")
+public class MemberInfoPo implements Serializable {
 
     private static final long serialVersionUID = 1L;
 
