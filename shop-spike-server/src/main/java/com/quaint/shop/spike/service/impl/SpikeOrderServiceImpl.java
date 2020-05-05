@@ -44,7 +44,13 @@ public class SpikeOrderServiceImpl implements SpikeOrderService {
         boolean status = spikeOrderMapper.insert(order) > 0;
         result.setStatus(status);
 
+        // 测试, 延迟队列 自动取消订单
+
         log.info("【 ===> insertSpikeOrder <=== 】method end, result:[{}]", result);
         return result;
+    }
+
+    private void testCancel(String spikeNo){
+
     }
 }

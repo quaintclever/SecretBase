@@ -3,8 +3,8 @@ package com.quaint.shop.spike.utils;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.data.redis.core.RedisTemplate;
 
-import java.text.SimpleDateFormat;
-import java.util.Date;
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 import java.util.concurrent.TimeUnit;
 
 /**
@@ -17,10 +17,6 @@ import java.util.concurrent.TimeUnit;
  */
 public abstract class OrderUtils {
 
-
-    private volatile static SimpleDateFormat sdf = new SimpleDateFormat("yyyyMMdd");
-
-
     /**
      * 生成订单号
      *
@@ -29,7 +25,7 @@ public abstract class OrderUtils {
      */
     public static String generateOrderCode(String type, RedisTemplate redisTemplate) {
 
-        String dataStr = sdf.format(new Date());
+        String dataStr = LocalDate.now().format(DateTimeFormatter.ofPattern("yyyyMMdd"));
         String key = type + dataStr;
         // 自增
         Long code = redisTemplate.opsForValue().increment(key, 1);
