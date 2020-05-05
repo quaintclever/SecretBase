@@ -5,6 +5,7 @@ import com.quaint.shop.member.annotation.AopLogin;
 import com.quaint.shop.member.helper.UserContext;
 import com.quaint.shop.spike.dto.SpikeOrderInsert;
 import com.quaint.shop.spike.service.SpikeOrderService;
+import io.swagger.annotations.Api;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -18,6 +19,7 @@ import org.springframework.web.bind.annotation.RestController;
  * @author quaint
  * @since 05 May 2020
  */
+@Api(tags = {"秒杀订单相关接口","分类: 秒杀"})
 @RestController
 public class SpikeOrderController {
 
