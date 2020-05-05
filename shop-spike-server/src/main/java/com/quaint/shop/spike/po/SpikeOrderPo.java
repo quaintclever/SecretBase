@@ -32,6 +32,12 @@ public class SpikeOrderPo implements Serializable {
     private Long id;
 
     /**
+     * 用户id
+     */
+    @TableField("member_id")
+    private Long memberId;
+
+    /**
      * 秒杀编号
      */
     @TableField("spike_no")
@@ -58,8 +64,8 @@ public class SpikeOrderPo implements Serializable {
     /**
      * 实付金额
      */
-    @TableField("pey_price")
-    private BigDecimal peyPrice;
+    @TableField("pay_price")
+    private BigDecimal payPrice;
 
     /**
      * 修改时间
