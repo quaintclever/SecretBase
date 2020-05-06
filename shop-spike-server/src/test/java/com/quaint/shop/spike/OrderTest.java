@@ -1,6 +1,6 @@
 package com.quaint.shop.spike;
 
-import com.quaint.shop.spike.helper.CancelOrderHelper;
+import com.quaint.shop.spike.helper.aco.CancelOrderHelper;
 import com.quaint.shop.spike.po.SpikeOrderPo;
 import org.junit.Test;
 import org.junit.runner.RunWith;
