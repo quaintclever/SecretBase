@@ -15,6 +15,7 @@ import java.util.concurrent.TimeUnit;
  * @author quaint
  * @since 05 May 2020
  */
+@SuppressWarnings("all")
 public abstract class OrderUtils {
 
     /**

@@ -30,5 +30,5 @@ dependencies {
     testCompileOnly 'org.projectlombok:lombok'
 
     // test
-    testCompile group: 'junit', name: 'junit', version: '4.12'
+    testCompile group: 'org.springframework.boot', name: 'spring-boot-starter-test'
 }

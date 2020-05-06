@@ -2,6 +2,7 @@ package com.quaint.shop.spike.service.impl;
 
 import com.quaint.shop.spike.dao.SpikeOrderMapper;
 import com.quaint.shop.spike.dto.SpikeOrderInsert;
+import com.quaint.shop.spike.helper.CancelOrderHelper;
 import com.quaint.shop.spike.po.SpikeOrderPo;
 import com.quaint.shop.spike.service.SpikeOrderService;
 import com.quaint.shop.spike.utils.OrderUtils;
@@ -9,6 +10,8 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.stereotype.Service;
+
+import java.time.LocalDateTime;
 
 /**
  * <p>
@@ -28,6 +31,9 @@ public class SpikeOrderServiceImpl implements SpikeOrderService {
     @Autowired
     RedisTemplate<String,Object> redisTemplate;
 
+    @Autowired
+    CancelOrderHelper cancelOrderHelper;
+
     @Override
     public SpikeOrderInsert.Result insertSpikeOrder(SpikeOrderInsert.Param param) {
 
@@ -41,16 +47,17 @@ public class SpikeOrderServiceImpl implements SpikeOrderService {
         order.setPayPrice(param.getPayPrice());
         order.setProductCode(param.getProductCode());
         order.setSpikeNo(OrderUtils.generateOrderCode("MS",redisTemplate));
+        order.setCreateTime(LocalDateTime.now());
         boolean status = spikeOrderMapper.insert(order) > 0;
         result.setStatus(status);
 
         // 测试, 延迟队列 自动取消订单
+        cancelOrderHelper.autoCancelOrder(order);
 
         log.info("【 ===> insertSpikeOrder <=== 】method end, result:[{}]", result);
         return result;
     }
 
-    private void testCancel(String spikeNo){
 
-    }
+
 }

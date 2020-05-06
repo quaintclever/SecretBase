@@ -1,4 +1,4 @@
-package com.quaint.shop.spike.helper;
+package com.quaint.shop.spike.helper.aco;
 
 import lombok.Data;
 
@@ -21,14 +21,9 @@ public class OrderDelayed implements Delayed {
 
 
     /**
-     * 单号
+     * 订单id
      */
-    private String orderNo;
-
-    /**
-     * 状态
-     */
-    private String status;
+    private Long orderId;
 
     /**
      * 创建时间
