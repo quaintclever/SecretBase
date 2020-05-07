@@ -17,17 +17,13 @@ dependencies {
     compile "org.apache.commons:commons-lang3:${commonsLang3Version}"
     compile "com.alibaba:fastjson:${fastjsonVersion}"
 
-    // spring boot web & aop
-    compile('org.springframework.boot:spring-boot-starter-web')
-    compile('org.springframework.boot:spring-boot-starter-aop')
-
-    // spring cloud nacos
-    compile 'com.alibaba.cloud:spring-cloud-starter-alibaba-nacos-discovery'
-    
-
     // spring boot redis
     compile group: 'org.springframework.boot', name: 'spring-boot-starter-data-redis'
     compile 'org.apache.commons:commons-pool2:2.7.0'
+    
+    // spring boot web & aop
+    compile('org.springframework.boot:spring-boot-starter-web')
+    compile('org.springframework.boot:spring-boot-starter-aop')
     
     // swagger2
     compile "io.springfox:springfox-swagger2:${swagger2Version}"

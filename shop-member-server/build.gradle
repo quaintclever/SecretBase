@@ -15,6 +15,9 @@ dependencies {
     // api
     compile project(':shop-member-api')
 
+    // spring cloud nacos
+    compile 'com.alibaba.cloud:spring-cloud-starter-alibaba-nacos-discovery'
+
     // sql
     runtime "mysql:mysql-connector-java:${mysqlVersion}"
     runtime "com.alibaba:druid:${druidVersion}"
