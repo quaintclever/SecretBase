@@ -26,11 +26,20 @@ public class UserInfoApiImpl implements UserInfoApi {
     @Autowired
     LoadBalancerClient loadBalancerClient;
 
+    /**
+     * 组装远程调用地址
+     * @param path path
+     * @return url
+     */
+    private String assembleUrl(String path){
+        ServiceInstance choose = loadBalancerClient.choose("shop-member-server");
+        return "http://shop-member-server:"+choose.getPort()+ path;
+    }
+
+
     @Override
     public UserInfoDto getUserInfoById(Long id) {
-        // 通过负载均衡获取实例
-        ServiceInstance choose = loadBalancerClient.choose("shop-member-server");
-        String url = "http://shop-member-server:"+choose.getPort()+ UserApiUrlConstants.GET_USER_INFO_BY_ID;
-        return restTemplate.postForObject(url, id,UserInfoDto.class);
+        String url = this.assembleUrl(UserApiUrlConstants.GET_USER_INFO_BY_ID);
+        return restTemplate.postForObject(url, id ,UserInfoDto.class);
     }
 }

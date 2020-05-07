@@ -24,9 +24,6 @@ dependencies {
     // spring cloud nacos
     compile 'com.alibaba.cloud:spring-cloud-starter-alibaba-nacos-discovery'
     
-    // spring cloud feign
-    compile('org.springframework.cloud:spring-cloud-starter-openfeign')
-    compile('io.github.openfeign:feign-httpclient')
 
     // spring boot redis
     compile group: 'org.springframework.boot', name: 'spring-boot-starter-data-redis'

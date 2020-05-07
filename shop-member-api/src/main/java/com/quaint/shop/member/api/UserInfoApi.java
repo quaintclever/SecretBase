@@ -2,7 +2,6 @@ package com.quaint.shop.member.api;
 
 import com.quaint.shop.member.constant.UserApiUrlConstants;
 import com.quaint.shop.member.dto.info.UserInfoDto;
-import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 
@@ -18,7 +17,6 @@ import org.springframework.web.bind.annotation.RequestBody;
  * @author quaint
  * @since 29 April 2020
  */
-@FeignClient("shop-member-server")
 public interface UserInfoApi {
 
     /**
