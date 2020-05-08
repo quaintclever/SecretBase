@@ -28,8 +28,16 @@ public class SpikeProductInfoController {
     @ApiOperation("获取秒杀商品信息")
     @PostMapping("get/spike/product")
     @AopLoggerResult
-    public GetSpikeProduct.Result getSpikeProduct(@RequestBody GetSpikeProduct.Param param){
-        return spikeProductInfoService.getSpikeProduct(param);
+    public GetSpikeProduct.Result getSpikeProductList(){
+        return spikeProductInfoService.getSpikeProduct();
     }
+
+    @ApiOperation(value = "设置秒杀商品信息缓存", hidden = false)
+    @PostMapping("set/spike/product/cache")
+    @AopLoggerResult
+    public Boolean putSpikeProduct2Cache(){
+        return spikeProductInfoService.putSpikeProduct2Cache();
+    }
+
 
 }

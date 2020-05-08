@@ -7,6 +7,7 @@ import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
 
 import java.util.List;
+import java.util.Map;
 
 /**
  * <p>
@@ -25,5 +26,11 @@ public interface SpikeProductInfoMapper extends BaseMapper<SpikeProductInfoPo> {
      * @return infos
      */
     List<GetSpikeProduct.Info> getSpikeProduct(@Param("codes") List<String> codes);
+
+    /**
+     * 根据code 修改 状态
+     * @param codeStatus key code -> val status
+     */
+    void updateSpikeProductStatus(@Param("codeStatus") Map<String,Integer> codeStatus);
 
 }

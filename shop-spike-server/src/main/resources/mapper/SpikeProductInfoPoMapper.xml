@@ -2,19 +2,26 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.quaint.shop.spike.dao.SpikeProductInfoMapper">
 
+    <update id="updateSpikeProductStatus">
+        <foreach collection="codeStatus.entrySet()" item="value" index="key" separator=";" close=";">
+            update spike_product_info set status = #{value} where product_code = #{key}
+        </foreach>
+    </update>
+
     <select id="getSpikeProduct" resultType="com.quaint.shop.spike.dto.GetSpikeProduct$Info">
         SELECT
             *
         FROM
-            spike_product_info
+            spike_product_info spi
         <where>
             <if test="codes != null and codes.size > 0">
-                product_code in
+                spi.product_code in
                 <foreach collection="codes" item="code" open="(" close=")" separator=",">
                     #{code}
                 </foreach>
             </if>
-            AND `status` = 1
+            AND spi.`status` in (0,1,2)
+            AND now() &lt; spi.end_time
         </where>
 
     </select>

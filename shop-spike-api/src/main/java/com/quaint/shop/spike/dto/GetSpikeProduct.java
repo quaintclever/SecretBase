@@ -5,6 +5,7 @@ import io.swagger.annotations.ApiModelProperty;
 import lombok.Data;
 
 import java.math.BigDecimal;
+import java.time.LocalDateTime;
 import java.util.List;
 
 /**
@@ -20,12 +21,6 @@ public interface GetSpikeProduct {
     @Data
     @ApiModel("获取秒杀商品 入参")
     class Param{
-
-        @ApiModelProperty("是否返回所有编码的商品")
-        private boolean getAll;
-
-        @ApiModelProperty("MS商品编码")
-        private List<String> productCodes;
 
     }
 
@@ -55,10 +50,19 @@ public interface GetSpikeProduct {
         private BigDecimal delLinePrice;
 
         @ApiModelProperty("当前商品数量")
-        private Integer currentProductNum;
+        private Integer spikeProductNum;
 
         @ApiModelProperty("当前已售数量")
-        private Integer currentSoldNum;
+        private Integer spikeSoldNum;
+
+        @ApiModelProperty("状态(0.预热 1.秒杀中 2.已售罄 3.已结束)")
+        private Integer status;
+
+        @ApiModelProperty("秒杀开始时间")
+        private LocalDateTime startTime;
+
+        @ApiModelProperty("秒杀结束时间")
+        private LocalDateTime endTime;
         
         
     }

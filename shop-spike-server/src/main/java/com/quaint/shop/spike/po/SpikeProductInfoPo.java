@@ -56,21 +56,33 @@ public class SpikeProductInfoPo implements Serializable {
     private BigDecimal delLinePrice;
 
     /**
-     * 当前商品数量
+     * 秒杀商品配置数量
      */
-    @TableField("current_product_num")
-    private Integer currentProductNum;
+    @TableField("spike_product_num")
+    private Integer spikeProductNum;
 
     /**
-     * 当前已售数量
+     * 当前秒杀商品已售数量
      */
-    @TableField("current_sold_num")
-    private Integer currentSoldNum;
+    @TableField("spike_sold_num")
+    private Integer spikeSoldNum;
 
     /**
-     * 状态(0.下架 1.上架 2.已售罄)
+     * 状态(0.预热 1.秒杀中 2.已售罄 3.已结束)
      */
     private Integer status;
+
+    /**
+     * 秒杀开始时间
+     */
+    @TableField("start_time")
+    private LocalDateTime startTime;
+
+    /**
+     * 秒杀结束时间
+     */
+    @TableField("end_time")
+    private LocalDateTime endTime;
 
     /**
      * 修改时间
