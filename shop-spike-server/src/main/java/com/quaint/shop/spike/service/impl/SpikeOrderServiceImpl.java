@@ -11,6 +11,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.stereotype.Service;
 
+import java.math.BigDecimal;
 import java.time.LocalDateTime;
 
 /**
@@ -35,16 +36,16 @@ public class SpikeOrderServiceImpl implements SpikeOrderService {
     CancelOrderHelper cancelOrderHelper;
 
     @Override
-    public SpikeOrderInsert.Result insertSpikeOrder(SpikeOrderInsert.Param param) {
+    public SpikeOrderInsert.Result insertSpikeOrder(SpikeOrderInsert.Param param, Long memberId) {
 
         log.info("【 ===> insertSpikeOrder <=== 】method start, param:[{}]", param);
         SpikeOrderInsert.Result result = new SpikeOrderInsert.Result();
 
         SpikeOrderPo order = new SpikeOrderPo();
-        order.setMemberId(param.getMemberId());
+        order.setMemberId(memberId);
         order.setOrderStatus(0);
         order.setShouldPrice(param.getShouldPrice());
-        order.setPayPrice(param.getPayPrice());
+        order.setPayPrice(BigDecimal.ZERO);
         order.setProductCode(param.getProductCode());
         order.setSpikeNo(OrderUtils.generateOrderCode("MS",redisTemplate));
         order.setCreateTime(LocalDateTime.now());

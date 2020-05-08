@@ -1,4 +1,4 @@
-package com.quaint.shop.spike.config;
+package com.quaint.shop.common.config;
 
 import com.fasterxml.jackson.annotation.JsonAutoDetect;
 import com.fasterxml.jackson.annotation.PropertyAccessor;

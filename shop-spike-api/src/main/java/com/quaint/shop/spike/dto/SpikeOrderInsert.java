@@ -21,16 +21,10 @@ public interface SpikeOrderInsert {
     class Param{
 
         @ApiModelProperty("商品编码")
-        String productCode;
-
-        @ApiModelProperty("用户id")
-        Long memberId;
+        private String productCode;
 
         @ApiModelProperty("应付金额")
         private BigDecimal shouldPrice;
-
-        @ApiModelProperty("实付金额")
-        private BigDecimal payPrice;
 
     }
 

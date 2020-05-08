@@ -56,6 +56,18 @@ public class SpikeProductInfoPo implements Serializable {
     private BigDecimal delLinePrice;
 
     /**
+     * 当前商品数量
+     */
+    @TableField("current_product_num")
+    private Integer currentProductNum;
+
+    /**
+     * 当前已售数量
+     */
+    @TableField("current_sold_num")
+    private Integer currentSoldNum;
+
+    /**
      * 状态(0.下架 1.上架 2.已售罄)
      */
     private Integer status;

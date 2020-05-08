@@ -15,8 +15,9 @@ public interface SpikeOrderService {
     /**
      * 秒杀订单插入
      * @param param param
+     * @param memberId memberId
      * @return bool
      */
-    SpikeOrderInsert.Result insertSpikeOrder(SpikeOrderInsert.Param param);
+    SpikeOrderInsert.Result insertSpikeOrder(SpikeOrderInsert.Param param, Long memberId);
 
 }

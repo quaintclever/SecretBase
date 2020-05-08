@@ -35,8 +35,7 @@ public class SpikeOrderController {
         if (userId==null){
             throw new RuntimeException("用户信息获取异常");
         } else{
-            param.setMemberId(userId);
-            return spikeOrderService.insertSpikeOrder(param);
+            return spikeOrderService.insertSpikeOrder(param,userId);
         }
     }
 
