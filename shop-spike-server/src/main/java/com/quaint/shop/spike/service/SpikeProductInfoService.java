@@ -23,10 +23,11 @@ public interface SpikeProductInfoService {
      * 把秒杀的商品信息 提前加入到 redis 缓存中
      * @return bool
      */
-    Boolean putSpikeProduct2Cache();
+    Boolean refreshSpikeProductCache();
 
     /**
      * 通过秒杀商品code 获取秒杀商品信息
+     * @param code 秒杀商品code
      * @return 商品信息
      */
     GetSpikeProduct.Info getSpikeProductByCode(String code);

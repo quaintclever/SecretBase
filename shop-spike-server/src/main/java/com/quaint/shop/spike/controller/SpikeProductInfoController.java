@@ -33,10 +33,10 @@ public class SpikeProductInfoController {
     }
 
     @ApiOperation(value = "设置秒杀商品信息缓存", hidden = false)
-    @PostMapping("set/spike/product/cache")
+    @PostMapping("refresh/spike/cache")
     @AopLoggerResult
-    public Boolean putSpikeProduct2Cache(){
-        return spikeProductInfoService.putSpikeProduct2Cache();
+    public Boolean refreshSpikeProductCache(){
+        return spikeProductInfoService.refreshSpikeProductCache();
     }
 
 

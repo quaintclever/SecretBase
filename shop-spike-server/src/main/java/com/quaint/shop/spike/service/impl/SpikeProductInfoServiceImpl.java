@@ -45,7 +45,7 @@ public class SpikeProductInfoServiceImpl implements SpikeProductInfoService {
     }
 
     @Override
-    public Boolean putSpikeProduct2Cache() {
+    public Boolean refreshSpikeProductCache() {
         // 查询秒杀的商品信息
         List<GetSpikeProduct.Info> spikeProduct = spikeProductInfoMapper.getSpikeProduct(null);
         return this.updateProductStatus(spikeProduct);
