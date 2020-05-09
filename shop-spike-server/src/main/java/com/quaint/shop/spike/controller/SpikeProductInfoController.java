@@ -26,10 +26,10 @@ public class SpikeProductInfoController {
     SpikeProductInfoService spikeProductInfoService;
 
     @ApiOperation("获取秒杀商品信息")
-    @PostMapping("get/spike/product")
+    @PostMapping("get/spike/products")
     @AopLoggerResult
     public GetSpikeProduct.Result getSpikeProductList(){
-        return spikeProductInfoService.getSpikeProduct();
+        return spikeProductInfoService.getSpikeProductList();
     }
 
     @ApiOperation(value = "设置秒杀商品信息缓存", hidden = false)
@@ -39,5 +39,12 @@ public class SpikeProductInfoController {
         return spikeProductInfoService.putSpikeProduct2Cache();
     }
 
+
+    @ApiOperation(value = "获取单个秒杀商品详情")
+    @PostMapping("get/spike/product/info")
+    @AopLoggerResult
+    public GetSpikeProduct.Info getSpikeProductByCode(@RequestBody String code){
+        return spikeProductInfoService.getSpikeProductByCode(code);
+    }
 
 }

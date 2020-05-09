@@ -1,5 +1,9 @@
 package com.quaint.shop.spike.dto;
 
+import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+import com.fasterxml.jackson.datatype.jsr310.deser.LocalDateTimeDeserializer;
+import com.fasterxml.jackson.datatype.jsr310.ser.LocalDateTimeSerializer;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import lombok.Data;
@@ -59,9 +63,13 @@ public interface GetSpikeProduct {
         private Integer status;
 
         @ApiModelProperty("秒杀开始时间")
+        @JsonDeserialize(using = LocalDateTimeDeserializer.class)
+        @JsonSerialize(using = LocalDateTimeSerializer.class)
         private LocalDateTime startTime;
 
         @ApiModelProperty("秒杀结束时间")
+        @JsonDeserialize(using = LocalDateTimeDeserializer.class)
+        @JsonSerialize(using = LocalDateTimeSerializer.class)
         private LocalDateTime endTime;
         
         

@@ -15,14 +15,20 @@ public interface SpikeProductInfoService {
 
     /**
      * 获取秒杀商品信息
-     * @return
+     * @return infos
      */
-    GetSpikeProduct.Result getSpikeProduct();
+    GetSpikeProduct.Result getSpikeProductList();
 
     /**
      * 把秒杀的商品信息 提前加入到 redis 缓存中
-     * @return
+     * @return bool
      */
     Boolean putSpikeProduct2Cache();
+
+    /**
+     * 通过秒杀商品code 获取秒杀商品信息
+     * @return 商品信息
+     */
+    GetSpikeProduct.Info getSpikeProductByCode(String code);
 
 }
