@@ -6,6 +6,7 @@ import com.quaint.shop.member.helper.UserContext;
 import com.quaint.shop.spike.dto.SpikeOrderInsert;
 import com.quaint.shop.spike.service.SpikeOrderService;
 import io.swagger.annotations.Api;
+import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -27,6 +28,7 @@ public class SpikeOrderController {
     @Autowired
     SpikeOrderService spikeOrderService;
 
+    @ApiOperation("秒杀订单下单接口")
     @PostMapping("insert/spike/order")
     @AopLoggerResult
     @AopLogin

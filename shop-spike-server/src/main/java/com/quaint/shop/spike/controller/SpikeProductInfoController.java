@@ -39,7 +39,6 @@ public class SpikeProductInfoController {
         return spikeProductInfoService.refreshSpikeProductCache();
     }
 
-
     @ApiOperation(value = "获取单个秒杀商品详情")
     @PostMapping("get/spike/product/info")
     @AopLoggerResult
