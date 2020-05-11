@@ -7,7 +7,7 @@ import java.math.BigDecimal;
 
 /**
  * <p>
- * desc: UserLogin dto
+ * desc: MemberLogin dto
  * </p>
  *
  * @author quaint

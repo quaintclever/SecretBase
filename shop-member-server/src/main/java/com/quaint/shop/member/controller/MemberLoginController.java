@@ -1,11 +1,11 @@
 package com.quaint.shop.member.controller;
 
 import com.quaint.shop.common.annotation.AopLoggerResult;
+import com.quaint.shop.member.dto.login.MemberLogin;
 import com.quaint.shop.member.dto.login.SendCode;
-import com.quaint.shop.member.dto.login.UserLogin;
 import com.quaint.shop.member.enums.SendCodeEnum;
 import com.quaint.shop.member.helper.SendCodeHelper;
-import com.quaint.shop.member.server.UserLoginService;
+import com.quaint.shop.member.server.MemberLoginService;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -25,10 +25,10 @@ import org.springframework.web.bind.annotation.RestController;
 @Api(tags = {"用户登录相关接口","分类: 用户"})
 @RestController
 @RequestMapping
-public class UserLoginController {
+public class MemberLoginController {
 
     @Autowired
-    UserLoginService userLoginService;
+    MemberLoginService memberLoginService;
 
     @Autowired
     SendCodeHelper sendCodeHelper;
@@ -37,8 +37,8 @@ public class UserLoginController {
     @ApiOperation("手机&密码登录")
     @AopLoggerResult
     @PostMapping("userLogin/phone")
-    public UserLogin.Result userLogin(@RequestBody UserLogin.Param param){
-        return userLoginService.userLogin(param);
+    public MemberLogin.Result userLogin(@RequestBody MemberLogin.Param param){
+        return memberLoginService.memberLogin(param);
     }
 
     @ApiOperation("手机登录发送验证码")

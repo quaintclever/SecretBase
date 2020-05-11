@@ -1,16 +1,18 @@
 package com.quaint.shop.member.controller;
 
-import com.quaint.shop.common.annotation.AopLoggerResult;
 import com.quaint.shop.common.annotation.AopLogger;
+import com.quaint.shop.common.annotation.AopLoggerResult;
 import com.quaint.shop.member.annotation.AopLogin;
 import com.quaint.shop.member.constant.MemberApiUrlConstants;
 import com.quaint.shop.member.dto.info.MemberInfoDto;
-import com.quaint.shop.member.helper.UserContext;
-import com.quaint.shop.member.server.UserInfoService;
+import com.quaint.shop.member.helper.MemberContext;
+import com.quaint.shop.member.server.MemberInfoService;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RestController;
 
 /**
  * <p>
@@ -22,25 +24,25 @@ import org.springframework.web.bind.annotation.*;
  */
 @Api(tags = {"用户信息相关接口","分类: 用户"})
 @RestController
-public class UserInfoController {
+public class MemberInfoController {
 
     @Autowired
-    UserInfoService userInfoService;
+    MemberInfoService memberInfoService;
 
     @ApiOperation("获取当前登录用户的信息")
-    @PostMapping("userInfo/current")
+    @PostMapping("memberInfo/current")
     @AopLogin
     @AopLoggerResult
-    public MemberInfoDto getUserInfo(){
-        Long userId = UserContext.getUserId();
-        return userInfoService.getUserInfoById(userId);
+    public MemberInfoDto getMemberInfo(){
+        Long userId = MemberContext.getMemberId();
+        return memberInfoService.getMemberInfoById(userId);
     }
 
     @ApiOperation("根据id获取用户的信息")
     @AopLogger
     @PostMapping(MemberApiUrlConstants.GET_MEMBER_INFO_BY_ID)
-    public MemberInfoDto getUserInfoById(@RequestBody Long id){
-        return userInfoService.getUserInfoById(id);
+    public MemberInfoDto getMemberInfoById(@RequestBody Long id){
+        return memberInfoService.getMemberInfoById(id);
     }
 
 }

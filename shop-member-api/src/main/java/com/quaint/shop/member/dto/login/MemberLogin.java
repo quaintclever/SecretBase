@@ -5,13 +5,13 @@ import lombok.Data;
 
 /**
  * <p>
- * desc: UserLogin dto
+ * desc: MemberLogin dto
  * </p>
  *
  * @author quaint
  * @since 28 April 2020
  */
-public interface UserLogin {
+public interface MemberLogin {
 
     @Data
     @ApiModel("用户登录入参")

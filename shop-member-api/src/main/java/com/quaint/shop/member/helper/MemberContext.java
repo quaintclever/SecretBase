@@ -11,22 +11,22 @@ import java.util.Map;
  * @author quaint
  * @since 29 April 2020
  */
-public class UserContext {
+public class MemberContext {
 
     private static ThreadLocal<Map<String,Object>> mapThreadLocal = new ThreadLocal<>();
 
     /**
      * 用户id
      */
-    private static final String USER_ID = "user_id";
+    private static final String MEMBER_ID = "member_id";
 
 
-    public static Long getUserId() {
-        return getValue(USER_ID);
+    public static Long getMemberId() {
+        return getValue(MEMBER_ID);
     }
 
-    public static void setUserId(Long userId) {
-        setValue(USER_ID, userId);
+    public static void setMemberId(Long memberId) {
+        setValue(MEMBER_ID, memberId);
     }
 
 

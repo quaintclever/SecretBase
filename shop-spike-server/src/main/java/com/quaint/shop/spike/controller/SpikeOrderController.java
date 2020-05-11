@@ -2,7 +2,7 @@ package com.quaint.shop.spike.controller;
 
 import com.quaint.shop.common.annotation.AopLoggerResult;
 import com.quaint.shop.member.annotation.AopLogin;
-import com.quaint.shop.member.helper.UserContext;
+import com.quaint.shop.member.helper.MemberContext;
 import com.quaint.shop.spike.dto.SpikeOrderInsert;
 import com.quaint.shop.spike.service.SpikeOrderService;
 import io.swagger.annotations.Api;
@@ -33,7 +33,7 @@ public class SpikeOrderController {
     @AopLoggerResult
     @AopLogin
     public SpikeOrderInsert.Result insertSpikeOrder(@RequestBody SpikeOrderInsert.Param param){
-        Long userId = UserContext.getUserId();
+        Long userId = MemberContext.getMemberId();
         if (userId==null){
             throw new RuntimeException("用户信息获取异常");
         } else{

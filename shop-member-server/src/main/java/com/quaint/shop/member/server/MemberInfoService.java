@@ -10,7 +10,7 @@ import com.quaint.shop.member.dto.info.MemberInfoDto;
  * @author quaint
  * @since 27 April 2020
  */
-public interface UserInfoService {
+public interface MemberInfoService {
 
 
     /**
@@ -18,6 +18,6 @@ public interface UserInfoService {
      * @param id id
      * @return dto
      */
-    MemberInfoDto getUserInfoById(Long id);
+    MemberInfoDto getMemberInfoById(Long id);
 
 }

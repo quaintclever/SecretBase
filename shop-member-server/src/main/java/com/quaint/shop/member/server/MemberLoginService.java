@@ -1,6 +1,6 @@
 package com.quaint.shop.member.server;
 
-import com.quaint.shop.member.dto.login.UserLogin;
+import com.quaint.shop.member.dto.login.MemberLogin;
 
 /**
  * <p>
@@ -10,13 +10,13 @@ import com.quaint.shop.member.dto.login.UserLogin;
  * @author quaint
  * @since 28 April 2020
  */
-public interface UserLoginService {
+public interface MemberLoginService {
 
     /**
      * 用户登录
      * @param param
      * @return
      */
-    UserLogin.Result userLogin(UserLogin.Param param);
+    MemberLogin.Result memberLogin(MemberLogin.Param param);
 
 }

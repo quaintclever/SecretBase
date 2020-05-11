@@ -15,7 +15,7 @@ import org.apache.ibatis.annotations.Select;
  * @since 2020-04-27
  */
 @Mapper
-public interface UserInfoMapper extends BaseMapper<MemberInfoPo> {
+public interface MemberInfoMapper extends BaseMapper<MemberInfoPo> {
 
     /**
      * 通过手机号登录 校验
@@ -23,7 +23,7 @@ public interface UserInfoMapper extends BaseMapper<MemberInfoPo> {
      * @param pwd pwd
      * @return po
      */
-    @Select("select * from user_info where phone = #{phone} and password = #{pwd} limit 1")
+    @Select("select * from member_info where phone = #{phone} and password = #{pwd} limit 1")
     MemberInfoPo loginCheckByPhoneAndPwd(@Param("phone") String phone, @Param("pwd") String pwd);
 
 }
