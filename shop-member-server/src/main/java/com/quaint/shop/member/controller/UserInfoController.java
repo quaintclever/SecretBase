@@ -3,8 +3,8 @@ package com.quaint.shop.member.controller;
 import com.quaint.shop.common.annotation.AopLoggerResult;
 import com.quaint.shop.common.annotation.AopLogger;
 import com.quaint.shop.member.annotation.AopLogin;
-import com.quaint.shop.member.constant.UserApiUrlConstants;
-import com.quaint.shop.member.dto.info.UserInfoDto;
+import com.quaint.shop.member.constant.MemberApiUrlConstants;
+import com.quaint.shop.member.dto.info.MemberInfoDto;
 import com.quaint.shop.member.helper.UserContext;
 import com.quaint.shop.member.server.UserInfoService;
 import io.swagger.annotations.Api;
@@ -31,15 +31,15 @@ public class UserInfoController {
     @PostMapping("userInfo/current")
     @AopLogin
     @AopLoggerResult
-    public UserInfoDto getUserInfo(){
+    public MemberInfoDto getUserInfo(){
         Long userId = UserContext.getUserId();
         return userInfoService.getUserInfoById(userId);
     }
 
     @ApiOperation("根据id获取用户的信息")
     @AopLogger
-    @PostMapping(UserApiUrlConstants.GET_USER_INFO_BY_ID)
-    public UserInfoDto getUserInfoById(@RequestBody Long id){
+    @PostMapping(MemberApiUrlConstants.GET_MEMBER_INFO_BY_ID)
+    public MemberInfoDto getUserInfoById(@RequestBody Long id){
         return userInfoService.getUserInfoById(id);
     }
 

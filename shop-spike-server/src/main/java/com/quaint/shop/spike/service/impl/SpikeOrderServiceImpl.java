@@ -1,5 +1,7 @@
 package com.quaint.shop.spike.service.impl;
 
+import com.quaint.shop.member.api.MemberInfoApi;
+import com.quaint.shop.member.dto.info.MemberInfoDto;
 import com.quaint.shop.spike.dao.SpikeOrderMapper;
 import com.quaint.shop.spike.dto.SpikeOrderInsert;
 import com.quaint.shop.spike.helper.aco.CancelOrderHelper;
@@ -35,14 +37,19 @@ public class SpikeOrderServiceImpl implements SpikeOrderService {
     @Autowired
     CancelOrderHelper cancelOrderHelper;
 
+    @Autowired
+    MemberInfoApi memberInfoApi;
+
     @Override
     public SpikeOrderInsert.Result insertSpikeOrder(SpikeOrderInsert.Param param, Long memberId) {
 
         log.info("【 ===> insertSpikeOrder <=== 】method start, param:[{}]", param);
         SpikeOrderInsert.Result result = new SpikeOrderInsert.Result();
 
+        MemberInfoDto memberInfoDto = memberInfoApi.getMemberInfoById(memberId);
+
         SpikeOrderPo order = new SpikeOrderPo();
-        order.setMemberId(memberId);
+        order.setMemberId(memberInfoDto.getId());
         order.setOrderStatus(0);
         order.setShouldPrice(param.getShouldPrice());
         order.setPayPrice(BigDecimal.ZERO);

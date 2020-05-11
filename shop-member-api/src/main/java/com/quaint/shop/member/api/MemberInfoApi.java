@@ -1,7 +1,7 @@
 package com.quaint.shop.member.api;
 
-import com.quaint.shop.member.constant.UserApiUrlConstants;
-import com.quaint.shop.member.dto.info.UserInfoDto;
+import com.quaint.shop.member.constant.MemberApiUrlConstants;
+import com.quaint.shop.member.dto.info.MemberInfoDto;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 
@@ -17,14 +17,14 @@ import org.springframework.web.bind.annotation.RequestBody;
  * @author quaint
  * @since 29 April 2020
  */
-public interface UserInfoApi {
+public interface MemberInfoApi {
 
     /**
      * 通过id 查询用户信息
      * @param id id
      * @return dto
      */
-    @PostMapping(UserApiUrlConstants.GET_USER_INFO_BY_ID)
-    UserInfoDto getUserInfoById(@RequestBody Long id);
+    @PostMapping(MemberApiUrlConstants.GET_MEMBER_INFO_BY_ID)
+    MemberInfoDto getMemberInfoById(@RequestBody Long id);
 
 }

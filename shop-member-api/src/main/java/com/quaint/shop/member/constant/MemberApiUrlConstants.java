@@ -8,11 +8,11 @@ package com.quaint.shop.member.constant;
  * @author quaint
  * @since 30 April 2020
  */
-public interface UserApiUrlConstants {
+public interface MemberApiUrlConstants {
 
     /**
      * 通过id 获取用户信息
      */
-    String GET_USER_INFO_BY_ID = "/api/userInfo/id";
+    String GET_MEMBER_INFO_BY_ID = "/api/memberInfo/id";
 
 }

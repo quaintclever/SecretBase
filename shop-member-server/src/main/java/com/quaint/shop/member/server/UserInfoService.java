@@ -1,6 +1,6 @@
 package com.quaint.shop.member.server;
 
-import com.quaint.shop.member.dto.info.UserInfoDto;
+import com.quaint.shop.member.dto.info.MemberInfoDto;
 
 /**
  * <p>
@@ -18,6 +18,6 @@ public interface UserInfoService {
      * @param id id
      * @return dto
      */
-    UserInfoDto getUserInfoById(Long id);
+    MemberInfoDto getUserInfoById(Long id);
 
 }

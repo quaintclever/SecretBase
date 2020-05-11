@@ -1,8 +1,8 @@
 package com.quaint.shop.member.aop;
 
 import com.quaint.shop.member.annotation.AopLogin;
-import com.quaint.shop.member.api.UserInfoApi;
-import com.quaint.shop.member.dto.info.UserInfoDto;
+import com.quaint.shop.member.api.MemberInfoApi;
+import com.quaint.shop.member.dto.info.MemberInfoDto;
 import com.quaint.shop.member.helper.UserContext;
 import org.aspectj.lang.ProceedingJoinPoint;
 import org.aspectj.lang.annotation.Around;
@@ -34,7 +34,7 @@ public class LoginAspect {
     private static final Logger log = LoggerFactory.getLogger(LoginAspect.class);
 
     @Autowired
-    UserInfoApi userInfoApi;
+    MemberInfoApi memberInfoApi;
 
     @Around(value = "@annotation(com.quaint.shop.member.annotation.AopLogin) && @annotation(aopLogin)"
             ,argNames = "joinPoint,aopLogin")
@@ -56,7 +56,7 @@ public class LoginAspect {
         // 解析token
         try {
             Long id = Long.parseLong(token.substring(token.lastIndexOf("#") + 1));
-            UserInfoDto user = userInfoApi.getUserInfoById(id);
+            MemberInfoDto user = memberInfoApi.getMemberInfoById(id);
             if (user == null || user.getId() == null) {
                 throw new RuntimeException("用户信息不存在!");
             }

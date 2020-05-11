@@ -1,8 +1,8 @@
 package com.quaint.shop.member.api.impl;
 
-import com.quaint.shop.member.api.UserInfoApi;
-import com.quaint.shop.member.constant.UserApiUrlConstants;
-import com.quaint.shop.member.dto.info.UserInfoDto;
+import com.quaint.shop.member.api.MemberInfoApi;
+import com.quaint.shop.member.constant.MemberApiUrlConstants;
+import com.quaint.shop.member.dto.info.MemberInfoDto;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.cloud.client.ServiceInstance;
 import org.springframework.cloud.client.loadbalancer.LoadBalancerClient;
@@ -18,7 +18,7 @@ import org.springframework.web.client.RestTemplate;
  * @since 30 April 2020
  */
 @Component
-public class UserInfoApiImpl implements UserInfoApi {
+public class MemberInfoApiImpl implements MemberInfoApi {
 
     @Autowired
     RestTemplate restTemplate;
@@ -38,8 +38,8 @@ public class UserInfoApiImpl implements UserInfoApi {
 
 
     @Override
-    public UserInfoDto getUserInfoById(Long id) {
-        String url = this.assembleUrl(UserApiUrlConstants.GET_USER_INFO_BY_ID);
-        return restTemplate.postForObject(url, id ,UserInfoDto.class);
+    public MemberInfoDto getMemberInfoById(Long id) {
+        String url = this.assembleUrl(MemberApiUrlConstants.GET_MEMBER_INFO_BY_ID);
+        return restTemplate.postForObject(url, id , MemberInfoDto.class);
     }
 }

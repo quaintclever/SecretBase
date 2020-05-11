@@ -15,7 +15,7 @@ import java.math.BigDecimal;
  */
 @Data
 @ApiModel("用户信息dto")
-public class UserInfoDto {
+public class MemberInfoDto {
 
     /**
      * 主键

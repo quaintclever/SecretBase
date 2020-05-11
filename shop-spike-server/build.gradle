@@ -17,6 +17,9 @@ dependencies {
     compile project(':shop-spike-api')
     compile project(':shop-member-api')
 
+    // cloud openfeign
+    compile "org.springframework.cloud:spring-cloud-starter-openfeign"
+    
     // sql
     runtime "mysql:mysql-connector-java:${mysqlVersion}"
     runtime "com.alibaba:druid:${druidVersion}"

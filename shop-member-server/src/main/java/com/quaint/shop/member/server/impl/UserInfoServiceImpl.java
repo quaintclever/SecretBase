@@ -1,7 +1,7 @@
 package com.quaint.shop.member.server.impl;
 
 import com.quaint.shop.member.dao.UserInfoMapper;
-import com.quaint.shop.member.dto.info.UserInfoDto;
+import com.quaint.shop.member.dto.info.MemberInfoDto;
 import com.quaint.shop.member.po.MemberInfoPo;
 import com.quaint.shop.member.server.UserInfoService;
 import lombok.extern.slf4j.Slf4j;
@@ -25,15 +25,15 @@ public class UserInfoServiceImpl implements UserInfoService {
     UserInfoMapper userInfoMapper;
 
     @Override
-    public UserInfoDto getUserInfoById(Long id) {
-        log.info("【 ===> getUserInfoById <=== 】method start, param:[{}]", id);
-        UserInfoDto result = new UserInfoDto();
+    public MemberInfoDto getUserInfoById(Long id) {
+        log.info("【 ===> getMemberInfoById <=== 】method start, param:[{}]", id);
+        MemberInfoDto result = new MemberInfoDto();
         MemberInfoPo memberInfoPo = userInfoMapper.selectById(id);
         if (memberInfoPo == null){
             throw new RuntimeException("用户信息不存在");
         }
         BeanUtils.copyProperties(memberInfoPo,result);
-        log.info("【 ===> getUserInfoById <=== 】method end, result:[{}]", result);
+        log.info("【 ===> getMemberInfoById <=== 】method end, result:[{}]", result);
         return result;
     }
 }
