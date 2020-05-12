@@ -1,9 +1,16 @@
 rootProject.name = 'SecretBase'
 include 'idea-lazy'
 include 'shop-common'
-include 'shop-discovery'
-include 'shop-member-api'
-include 'shop-member-server'
-include 'shop-spike-server'
-include 'shop-spike-api'
+
+include 'shop-member'
+include 'shop-member:member-api'
+findProject(':shop-member:member-api')?.name = 'member-api'
+include 'shop-member:member-server'
+findProject(':shop-member:member-server')?.name = 'member-server'
+
+include 'shop-spike'
+include 'shop-spike:spike-api'
+findProject(':shop-spike:spike-api')?.name = 'spike-api'
+include 'shop-spike:spike-server'
+findProject(':shop-spike:spike-server')?.name = 'spike-server'
 

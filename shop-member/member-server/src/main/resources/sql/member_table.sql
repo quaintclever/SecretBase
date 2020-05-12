@@ -1,3 +1,4 @@
+
 -- 会员信息表
 DROP TABLE IF EXISTS `member_info`;
 CREATE TABLE `member_info` (
@@ -14,5 +15,3 @@ CREATE TABLE `member_info` (
   `valid` tinyint(1) DEFAULT '1' COMMENT '是否有效',
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COMMENT='会员信息表';
-
-

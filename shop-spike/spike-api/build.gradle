@@ -18,7 +18,7 @@ dependencies {
 
     // spring cloud nacos
     compile 'com.alibaba.cloud:spring-cloud-starter-alibaba-nacos-discovery'
-    
+
     // lombok
     annotationProcessor 'org.projectlombok:lombok'
     compileOnly 'org.projectlombok:lombok'
