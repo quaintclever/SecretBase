@@ -26,10 +26,6 @@ mybatis plus 的代码生成帮助项目. 节省为实现场景,编写基础业�
 
 封装了日志相关代码
 
-**shop-discovery**
-
-注册中心, 采用的nacos
-
 **shop-member**
 
 会员服务
